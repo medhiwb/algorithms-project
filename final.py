@@ -1,12 +1,28 @@
-# function for determining solvability based in number of inversions
+import algorithms
+
+
+# function for determining solvability based on number of inversions
 def solvable(initial_state):
+    """ commented code is for finding inversions in a list """
+    # inversions = 0
+    # for j in range(len(initial_state)):
+    #     for k in range(j + 1, 9):
+    #         if initial_state[j] and initial_state[k] and initial_state[j] > initial_state[k]:
+    #             inversions += 1
+    # print(inversions)
+
+    """ code for finding inversions in a matrix -> iterates around the edge """
     inversions = 0
-    for j in range(len(initial_state)):
-        for k in range(j + 1, 9):
-            if initial_state[j] and initial_state[k] and initial_state[j] > initial_state[k]:
+    # position of numbers on edge of matrix (excludes 0 -> not needed for inversions)
+    path = [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (2, 1), (2, 0), (1, 0)]
+
+    for i in range(len(path) - 1):
+        x1, y1 = path[i]
+        for j in range(i + 1, len(path)):
+            x2, y2 = path[j]
+            if initial_state[x1][y1] > initial_state[x2][y2]:
                 inversions += 1
-    # print(inversions) 
-    
+
     # even inversions = solvable
     if inversions % 2 == 0:
         return True
@@ -15,12 +31,19 @@ def solvable(initial_state):
 
 
 def main():
-    initial_state = [7, 2, 4, 6, 1, 3, 8, 5, 0]
-    goal_state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+    initial_state = [[1, 3, 4], [8, 0, 6], [7, 5, 2]]
+    goal_state = [[1, 2, 3], [8, 0, 4], [7, 6, 5]]
+
     isSolvable = solvable(initial_state)
     if not isSolvable:
         print("Not Solvable")
         return
+
+    state, path, cost = algorithms.BFS(initial_state, goal_state)
+    print("State:", state)
+    print("BFS Path:", path)
+    print("BFS Cost:", cost)
+
 
 
 main()
