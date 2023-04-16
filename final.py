@@ -1,11 +1,13 @@
+# function for determining solvability based in number of inversions
 def solvable(initial_state):
     inversions = 0
     for j in range(len(initial_state)):
         for k in range(j + 1, 9):
             if initial_state[j] and initial_state[k] and initial_state[j] > initial_state[k]:
                 inversions += 1
-    print(inversions)
-
+    # print(inversions) 
+    
+    # even inversions = solvable
     if inversions % 2 == 0:
         return True
     else:
