@@ -11,7 +11,7 @@ def BFS(initial_state, goal_state):
     
     # while the queue is not empty (we still got states to look at)
     while not queue.empty():
-        # extract and dequeue "oldest" state (fifo)
+        # extract and dequeue "oldest" state (fifo) --> current state
         state, path, cost = queue.get()
         
         # if the state is the goal state, yay! end this ish
