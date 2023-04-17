@@ -75,8 +75,8 @@ def isEmpty(self):
         return self.size() == 0
 
     
-def DFS(inital_state, goal_state):
-    stack = [(inital_state, [], 0)]
+def DFS(initial_state, goal_state):
+    stack = [(initial_state, [], 0)]
     visited = set()
 
     while stack:
@@ -95,6 +95,9 @@ def DFS(inital_state, goal_state):
                         child_cost = cost + 1
                         if tuple(map(tuple, child_state)) not in visited:
                             stack.append((child_state, path + ["R"], child_cost))
+                            visited.add(tuple(map(tuple, child_state)))
+                            if child_state == goal_state:
+                                return child_state, path + ["R"], child_cost
                     if j > 0:  # tile can move left
                         child_state = tuple([tuple(row) for row in state])
                         child_state = list(map(list, child_state))
@@ -102,6 +105,9 @@ def DFS(inital_state, goal_state):
                         child_cost = cost + 1
                         if tuple(map(tuple, child_state)) not in visited:
                             stack.append((child_state, path + ["L"], child_cost))
+                            visited.add(tuple(map(tuple, child_state)))
+                            if child_state == goal_state:
+                                return child_state, path + ["L"], child_cost
                     if i < 2:  # tile can move down
                         child_state = tuple([tuple(row) for row in state])
                         child_state = list(map(list, child_state))
@@ -109,6 +115,9 @@ def DFS(inital_state, goal_state):
                         child_cost = cost + 1
                         if tuple(map(tuple, child_state)) not in visited:
                             stack.append((child_state, path + ["D"], child_cost))
+                            visited.add(tuple(map(tuple, child_state)))
+                            if child_state == goal_state:
+                                return child_state, path + ["D"], child_cost
                     if i > 0:  # tile can move up
                         child_state = tuple([tuple(row) for row in state])
                         child_state = list(map(list, child_state))
@@ -116,6 +125,7 @@ def DFS(inital_state, goal_state):
                         child_cost = cost + 1
                         if tuple(map(tuple, child_state)) not in visited:
                             stack.append((child_state, path + ["U"], child_cost))
-        if not stack:
-            break
+                            visited.add(tuple(map(tuple, child_state)))
+                            if child_state == goal_state:
+                                return child_state, path + ["U"], child_cost
     return -1

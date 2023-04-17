@@ -39,10 +39,10 @@ def main():
         print("Not Solvable")
         return
 
-    # state, path, cost = algorithms.BFS(initial_state, goal_state)
-    # print("State:", state)
-    # print("BFS Path:", path)
-    # print("BFS Cost:", cost)
+    state, path, cost = algorithms.BFS(initial_state, goal_state)
+    print("State:", state)
+    print("BFS Path:", path)
+    print("BFS Cost:", cost)
 
     state, path, cost = algorithms.DFS(initial_state, goal_state)
     print("State:", state)
