@@ -81,7 +81,7 @@ def DFS(inital_state, goal_state):
 
     while stack:
         state, path, cost = stack.pop()
-        if state == goal_state:5
+        if state == goal_state:
             return state, path, cost
         visited.add(tuple(map(tuple, state)))
 
