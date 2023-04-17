@@ -44,10 +44,15 @@ def main():
     print("BFS Path:", path)
     print("BFS Cost:", cost)
 
-    state, path, cost = algorithms.DFS(initial_state, goal_state)
+    # state, path, cost = algorithms.DFS(initial_state, goal_state)
+    # print("State:", state)
+    # print("DFS Path:", path)
+    # print("DFS Cost:", cost)
+
+    state, path, cost = algorithms.dijkstra(initial_state, goal_state)
     print("State:", state)
-    print("DFS Path:", path)
-    print("DFS Cost:", cost)
+    print("Dijkstra's Path:", path)
+    print("Dijkstra's Cost:", cost)
 
 
 main()
