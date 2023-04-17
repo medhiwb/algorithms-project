@@ -30,9 +30,7 @@ def BFS(initial_state, goal_state):
                 if state[i][j] == 0:
                     if i > 0:  # tile can move up
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        # convert child state from tuple to list to make modifications
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # swap empty tile with tile above it
                         child_state[i][j], child_state[i-1][j] = child_state[i-1][j], child_state[i][j]
                         # increment the cost
@@ -42,9 +40,7 @@ def BFS(initial_state, goal_state):
                             queue.put((child_state, path + ["U"], child_cost))
                     if i < 2:  # tile can move down
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        # convert child state from tuple to list to make modifications
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # swap empty tile with tile below it
                         child_state[i][j], child_state[i+1][j] = child_state[i+1][j], child_state[i][j]
                         # increment the cost
@@ -54,9 +50,7 @@ def BFS(initial_state, goal_state):
                             queue.put((child_state, path + ["D"], child_cost))
                     if j > 0:  # tile can move left
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        # convert child state from tuple to list to make modifications
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # swap empty tile with tile to the left of it
                         child_state[i][j], child_state[i][j-1] = child_state[i][j-1], child_state[i][j]
                         # increment the cost
@@ -66,9 +60,7 @@ def BFS(initial_state, goal_state):
                             queue.put((child_state, path + ["L"], child_cost))
                     if j < 2:  # tile can move right
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        # convert child state from tuple to list to make modifications
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # swap empty tile with tile to the right of it
                         child_state[i][j], child_state[i][j+1] = child_state[i][j+1], child_state[i][j]
                         #increment the cost
