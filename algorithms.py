@@ -4,13 +4,11 @@ from queue import Queue
 def BFS(initial_state, goal_state):
     # initialize queue for bfs traversal
     queue = Queue()
-    
     # add initial state, path to reach it, and cost to queue
     queue.put((initial_state, [], 0))
-    
     # intialize set of discovered states as empty
     visited = set()
-
+    
     # while the queue is not empty (we still got states to look at)
     while not queue.empty():
         # extract and dequeue "oldest" state (fifo)
