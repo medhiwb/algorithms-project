@@ -68,7 +68,7 @@ def BFS(initial_state, goal_state):
                         # if the new state hasn't been visited, enqueue it
                         if tuple(map(tuple, child_state)) not in visited:
                             queue.put((child_state, path + ["R"], child_cost))
-    return -1
+    return
 
     
 def DFS(initial_state, goal_state):
@@ -150,4 +150,4 @@ def DFS(initial_state, goal_state):
                             # if the new state is goal state, end search early
                             if child_state == goal_state:
                                 return child_state, path + ["U"], child_cost
-    return -1
+    return
