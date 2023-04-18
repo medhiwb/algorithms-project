@@ -12,4 +12,27 @@ How to run the program:
   
     Both the main.py and algorithms.py files should be present in the same directory in order for successful running of the program 
     
-    ** Sample Output **
+Sample Output 
+--------------------
+
+*BFS*
+
+Cost: 4
+
+Path: ['R', 'U', 'L', 'D']
+
+-------
+
+*DFS*
+
+Cost: 28
+
+Path: ['L', 'U', 'R', 'R', 'D', 'L', 'L', 'U', 'R', 'R', 'D', 'L', 'L', 'U', 'R', 'R', 'D', 'L', 'L', 'U', 'R', 'R', 'D', 'L', 'L', 'U', 'R', 'D']
+
+------
+
+*Dijkstra*
+
+Cost: 11
+
+Path: ['R', 'U', 'L', 'D']
