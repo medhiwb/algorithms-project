@@ -1,7 +1,7 @@
 # algorithms-project
 Final project for Analysis of Algorithms
 
-This project was implemented in PyCharm using the Python programming langauage
+This project was implemented in PyCharm using the Python programming language
 
 The following files are needed:
   - main.py
