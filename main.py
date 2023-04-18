@@ -3,14 +3,6 @@ import algorithms
 
 # function for determining solvability based on number of inversions
 def solvable(initial_state):
-    """ commented code is for finding inversions in a list """
-    # inversions = 0
-    # for j in range(len(initial_state)):
-    #     for k in range(j + 1, 9):
-    #         if initial_state[j] and initial_state[k] and initial_state[j] > initial_state[k]:
-    #             inversions += 1
-    # print(inversions)
-
     """ code for finding inversions in a matrix -> iterates around the edge """
     inversions = 0
     # position of numbers on edge of matrix (excludes 0 -> not needed for inversions)
