@@ -23,10 +23,14 @@ def solvable(initial_state):
 
 
 def main():
-    
     # initial_state = [[5, 6, 7], [4, 0, 8], [3, 2, 1]]
-    # initial_state = [[1, 3, 4], [8, 0, 2], [7, 6, 5]]
-    initial_state = [[1, 3, 4], [8, 0, 6], [7, 5, 2]]
+
+    # fastest running time
+    initial_state = [[1, 3, 4], [8, 0, 2], [7, 6, 5]]
+
+    # slowest running time (for DFS)
+    # initial_state = [[1, 3, 4], [8, 0, 6], [7, 5, 2]]
+
     goal_state = [[1, 2, 3], [8, 0, 4], [7, 6, 5]]
 
     isSolvable = solvable(initial_state)
@@ -35,23 +39,26 @@ def main():
         return
 
     state, path, cost = algorithms.BFS(initial_state, goal_state)
-    print("State:", state)
-    print("BFS Path:", path)
-    print("BFS Cost:", cost)
+    print("BFS")
+    print("-------")
+    print("Cost:", cost)
+    print("Path:", path)
 
     print("\n")
 
     state, path, cost = algorithms.DFS(initial_state, goal_state)
-    print("State:", state)
-    print("DFS Path:", path)
-    print("DFS Cost:", cost)
+    print("DFS")
+    print("-------")
+    print("Cost:", cost)
+    print("Path:", path)
 
     print("\n")
 
     state, path, cost = algorithms.dijkstra(initial_state, goal_state)
-    print("State:", state)
-    print("Dijkstra Path:", path)
-    print("Dijkstra Cost:", cost)
+    print("Dijkstra")
+    print("-------")
+    print("Cost:", cost)
+    print("Path:", path)
 
 
 main()
