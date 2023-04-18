@@ -9,4 +9,5 @@ The following files are needed:
 
 How to run the program:
   - Run the main.py program
+  
   Both the main.py and algorithms.py files should be present in the same directory in order for successful running of the program 
