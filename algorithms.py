@@ -10,12 +10,12 @@ def BFS(initial_state, goal_state):
     # intialize set of discovered states as empty
     visited = set()
 
-    # while the queue is not empty (we still got states to look at)
+    # while the queue is not empty (there are still states to explore)
     while not queue.empty():
         # extract and dequeue "oldest" state (fifo) --> current state
         state, path, cost = queue.get()
 
-        # if the state is the goal state, yay! end this ish
+        # if the state is the goal state, end the search and return
         if state == goal_state:
             return state, path, cost
 
@@ -80,12 +80,12 @@ def DFS(initial_state, goal_state):
     visited = set()
     visited.add(tuple(map(tuple, initial_state)))
 
-    # while the stack is not empty (still got states to look at)
+    # while the stack is not empty (there are still states to explore)
     while stack:
         # extract and pop "newest" state (lifo) --> current state
         state, path, cost = stack.pop()
 
-        # if the state is the goal state, yay! end this ish
+        # if the state is the goal state, end the search and return
         if state == goal_state:
             return state, path, cost
 
@@ -162,12 +162,12 @@ def dijkstra(initial_state, goal_state):
     # initialize set of discovered states and add initial state
     visited = set()
 
-    # while the queue is not empty (still got states to look at)
+    # while the queue is not empty (there are still states to explore)
     while queue:
         # extract and pop smallest state from heap, maintaining heap conditions --> current state
         cost, state, path = heapq.heappop(queue)
         
-        # if the state is the goal state, yay! end this ish
+        # if the state is the goal state, end the search and return
         if state == goal_state:
             return state, path, cost
         
@@ -183,8 +183,7 @@ def dijkstra(initial_state, goal_state):
                 if state[i][j] == 0:
                     if j > 0:  # tile can move left
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # get the value of the tile to the left of the empty tile
                         tile_value = child_state[i][j - 1]
                         # swap empty tile with tile to the left of it
@@ -197,8 +196,7 @@ def dijkstra(initial_state, goal_state):
                             visited.add(tuple(map(tuple, child_state)))
                     if i > 0:  # tile can move up
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # get the value of the tile above the empty tile
                         tile_value = child_state[i-1][j]
                         # swap empty tile with tile above of it
@@ -211,8 +209,7 @@ def dijkstra(initial_state, goal_state):
                             visited.add(tuple(map(tuple, child_state)))
                     if j < 2:  # tile can move right
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # get the value of the tile to the right of the empty tile
                         tile_value = child_state[i][j+1]
                         # swap empty tile with tile to the right of it
@@ -225,8 +222,7 @@ def dijkstra(initial_state, goal_state):
                             visited.add(tuple(map(tuple, child_state)))
                     if i < 2:  # tile can move down
                         # set child state as current state
-                        child_state = tuple([tuple(row) for row in state])
-                        child_state = list(map(list, child_state))
+                        child_state = list(map(list, state))
                         # get the value of the tile below the empty tile
                         tile_value = child_state[i+1][j]
                         # swap empty tile with tile below it
