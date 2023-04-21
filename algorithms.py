@@ -157,51 +157,83 @@ def DFS(initial_state, goal_state):
 
 
 def dijkstra(initial_state, goal_state):
+    # initialize queue for dijkstra traversal
     queue = [(0, initial_state, [])]
+    # initialize set of discovered states and add initial state
     visited = set()
 
+    # while the queue is not empty (still got states to look at)
     while queue:
+        # extract and pop smallest state from heap, mainting heap conditions --> current state
         cost, state, path = heapq.heappop(queue)
+        
+        # if the state is the goal state, yay! end this ish
         if state == goal_state:
             return state, path, cost
+        
+        # mark state as discovered
         visited.add(tuple(map(tuple, state)))
 
+        """ check the position of the empty tile in the matrix
+            and generate child states (next possible states) by moving the empty tile """
+        # for each row i and column j in the puzzle matrix...
         for i in range(0, 3):
             for j in range(0, 3):
+                # once row i and column j is the location of the empty tile, push all next possible states
                 if state[i][j] == 0:
                     if j > 0:  # tile can move left
+                        # set child state as current state
                         child_state = tuple([tuple(row) for row in state])
                         child_state = list(map(list, child_state))
+                        # get the value of the tile to the left of the empty tile
                         tile_value = child_state[i][j - 1]
+                        # swap empty tile with tile to the left of it
                         child_state[i][j], child_state[i][j - 1] = child_state[i][j - 1], child_state[i][j]
+                        # add tile value to cost (distance)
                         child_cost = cost + tile_value
+                        # if the new state hasn't been visited, push it and mark it discovered
                         if tuple(map(tuple, child_state)) not in visited:
                             heapq.heappush(queue, (child_cost, child_state, path + ["L"]))
                             visited.add(tuple(map(tuple, child_state)))
                     if i > 0:  # tile can move up
+                        # set child state as current state
                         child_state = tuple([tuple(row) for row in state])
                         child_state = list(map(list, child_state))
+                        # get the value of the tile above the empty tile
                         tile_value = child_state[i-1][j]
+                        # swap empty tile with tile above of it
                         child_state[i][j], child_state[i - 1][j] = child_state[i - 1][j], child_state[i][j]
+                        # add tile value to cost (distance)
                         child_cost = cost + tile_value
+                        # if the new state hasn't been visited, push it and mark it discovered
                         if tuple(map(tuple, child_state)) not in visited:
                             heapq.heappush(queue, (child_cost, child_state, path + ["U"]))
                             visited.add(tuple(map(tuple, child_state)))
                     if j < 2:  # tile can move right
+                        # set child state as current state
                         child_state = tuple([tuple(row) for row in state])
                         child_state = list(map(list, child_state))
+                        # get the value of the tile to the right of the empty tile
                         tile_value = child_state[i][j+1]
+                        # swap empty tile with tile to the right of it
                         child_state[i][j], child_state[i][j + 1] = child_state[i][j + 1], child_state[i][j]
+                        # add tile value to cost (distance)
                         child_cost = cost + tile_value
+                        # if the new state hasn't been visited, push it and mark it discovered
                         if tuple(map(tuple, child_state)) not in visited:
                             heapq.heappush(queue, (child_cost, child_state, path + ["R"]))
                             visited.add(tuple(map(tuple, child_state)))
                     if i < 2:  # tile can move down
+                        # set child state as current state
                         child_state = tuple([tuple(row) for row in state])
                         child_state = list(map(list, child_state))
+                        # get the value of the tile below the empty tile
                         tile_value = child_state[i+1][j]
+                        # swap empty tile with tile below it
                         child_state[i][j], child_state[i + 1][j] = child_state[i + 1][j], child_state[i][j]
+                        # add tile value to cost (distance)
                         child_cost = cost + tile_value
+                        # if the new state hasn't been visited, push it and mark it discovered
                         if tuple(map(tuple, child_state)) not in visited:
                             heapq.heappush(queue, (child_cost, child_state, path + ["D"]))
                             visited.add(tuple(map(tuple, child_state)))
