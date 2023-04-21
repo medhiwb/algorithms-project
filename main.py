@@ -63,7 +63,7 @@ def main():
     print("\n")
 
     # call dijkstra on initial state
-    state, path, cost = algorithms.dijkstra(initial_state, goal_state)
+    state, path, cost = algorithms.Dijkstra(initial_state, goal_state)
     print("Dijkstra")
     print("-------")
     print("Cost:", cost)
