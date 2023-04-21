@@ -156,7 +156,7 @@ def DFS(initial_state, goal_state):
     return
 
 
-def dijkstra(initial_state, goal_state):
+def Dijkstra(initial_state, goal_state):
     # initialize queue for dijkstra traversal
     queue = [(0, initial_state, [])]
     # initialize set of discovered states and add initial state
