@@ -164,7 +164,7 @@ def dijkstra(initial_state, goal_state):
 
     # while the queue is not empty (still got states to look at)
     while queue:
-        # extract and pop smallest state from heap, mainting heap conditions --> current state
+        # extract and pop smallest state from heap, maintaining heap conditions --> current state
         cost, state, path = heapq.heappop(queue)
         
         # if the state is the goal state, yay! end this ish
