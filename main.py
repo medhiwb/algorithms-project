@@ -24,11 +24,6 @@ def solvable(initial_state):
 
 
 def main():
-    # fastest running time
-    #   initial_state = [[1, 3, 4], [8, 0, 2], [7, 6, 5]]
-    # slowest running time (for DFS)
-    #   initial_state = [[1, 3, 4], [8, 0, 6], [7, 5, 2]]
-    
     # open file with initial state for reading
     file = open('initial_state.txt', 'r')
     # create initial_state as list of lists of tiles
