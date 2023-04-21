@@ -161,6 +161,7 @@ def Dijkstra(initial_state, goal_state):
     queue = [(0, initial_state, [])]
     # initialize set of discovered states and add initial state
     visited = set()
+    visited.add(tuple(map(tuple, initial_state)))
 
     # while the queue is not empty (there are still states to explore)
     while queue:
@@ -171,9 +172,6 @@ def Dijkstra(initial_state, goal_state):
         if state == goal_state:
             return state, path, cost
         
-        # mark state as discovered
-        visited.add(tuple(map(tuple, state)))
-
         """ check the position of the empty tile in the matrix
             and generate child states (next possible states) by moving the empty tile """
         # for each row i and column j in the puzzle matrix...
