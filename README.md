@@ -1,5 +1,5 @@
-# algorithms-project
-Final project for Analysis of Algorithms
+# Analysis-of-Algorithms-Final-Project
+Solving the 8-Puzzle with BFS, DFS, and Dijkstra 
 
 This project was implemented in PyCharm using the Python programming language
 
