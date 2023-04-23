@@ -6,11 +6,12 @@ This project was implemented in PyCharm using the Python programming language
 The following files are needed:
   - main.py
   - algorithms.py
+  - initial_state.txt
 
 How to run the program:
   - Run the main.py program
   
-    Both the main.py and algorithms.py files should be present in the same directory in order for successful running of the program 
+   The main.py, algorithms.py, and initial_state.txt files should be present in the same directory in order for successful running of the program 
     
 Sample Output 
 --------------------
