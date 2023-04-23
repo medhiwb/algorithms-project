@@ -1,5 +1,4 @@
 import algorithms
-import time
 
 
 # function for determining solvability based on number of inversions
@@ -46,44 +45,29 @@ def main():
     goal_state = [[1, 2, 3], [8, 0, 4], [7, 6, 5]]
 
     # call BFS on initial state
-    start_time1 = time.time()  # start time
     state, path, cost = algorithms.BFS(initial_state, goal_state)
     print("BFS")
     print("-------")
     print("Cost:", cost)
     print("Path:", path)
 
-    end_time1 = time.time()  # end time
-    elapsed_time1 = end_time1 - start_time1  # calculate elapsed time
-    print(f"Elapsed time: {elapsed_time1} seconds")
-
     print("\n")
 
     # call DFS on initial state
-    start_time2 = time.time()  # start time
     state, path, cost = algorithms.DFS(initial_state, goal_state)
     print("DFS")
     print("-------")
     print("Cost:", cost)
     print("Path:", path)
 
-    end_time2 = time.time()  # end time
-    elapsed_time2 = end_time2 - start_time2  # calculate elapsed time
-    print(f"Elapsed time: {elapsed_time2} seconds")
-
     print("\n")
 
     # call dijkstra on initial state
-    start_time3 = time.time()  # start time
     state, path, cost = algorithms.Dijkstra(initial_state, goal_state)
     print("Dijkstra")
     print("-------")
     print("Cost:", cost)
     print("Path:", path)
-
-    end_time3 = time.time()  # end time
-    elapsed_time3 = end_time3 - start_time3  # calculate elapsed time
-    print(f"Elapsed time: {elapsed_time3} seconds")
 
 
 main()
