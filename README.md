@@ -11,7 +11,7 @@ The following files are needed:
 How to run the program:
   - Run the main.py program
   
-   The main.py, algorithms.py, and initial_state.txt files should be present in the same directory in order for successful running of the program 
+    *The main.py, algorithms.py, and initial_state.txt files should be present in the same directory in order for successful running of the program* 
     
 Sample Output 
 --------------------
